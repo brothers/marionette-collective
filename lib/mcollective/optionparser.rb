@@ -18,8 +18,8 @@ module MCollective
             timeout = ENV["MCOLLECTIVE_TIMEOUT"] || 5
             dtimeout = ENV["MCOLLECTIVE_DTIMEOUT"] || 2
 
-            config = File.expand_path("~/.mcrc")
-            if ! File::Stat.new(config).readable?
+            config = File.expand_path("~/.mcollective")
+            unless File::Stat.new(config).readable?
                 config = "/etc/mcollective/client.cfg"
             end
 
